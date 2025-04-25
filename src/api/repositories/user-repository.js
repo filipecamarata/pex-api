@@ -1,3 +1,11 @@
-import prisma from "../../prisma/prisma-client";
+import prisma from "../../prisma/prisma-client.js";
 
-// com base nessa conecão criar aqui os dados para repository
+export class UserRepository {
+    static async createUser(data) {
+        return await prisma.user.create({ data })
+    }
+
+    static async findUserByEmail(email) {
+        return await prisma.user.findUnique({ where: { email } })
+    }
+}
