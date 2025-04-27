@@ -21,13 +21,16 @@
   },
   "homepage": "https://github.com/filipecamarata/pex-api#readme",
   "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "mysql2": "^3.14.0",
-    "sequelize": "^6.37.7"
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "prisma": "^6.6.0"
   }
 }
