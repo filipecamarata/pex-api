@@ -1,12 +1,13 @@
+import "dotenv/config";
 import app from "./app.js"
-import conexao from "./config/conexao.js"
+import routes from "./routes/index.js"
+import dotenv from "dotenv"
 
+const envFile = process.env.NODE_ENV === 'dev' ? '.env.dev' :'.env'
+dotenv.config({path: envFile})
 
-conexao.sync()
-    .then(()=>{
-        app.listen(4000)
-        console.log("Conectamos ao banco")
-    })
-    .catch((err)=>{
-        console.log(`Erro ao se conectar ao banco ${err}`)
-    })
+const port = process.env.PORT_APP
+
+routes(app)
+
+app.listen(port, () => console.log(`app runnig on port ${port}`))
