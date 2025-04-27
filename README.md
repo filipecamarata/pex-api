@@ -20,7 +20,7 @@ A API foi projetada para ser o backend da plataforma, garantindo rotas seguras e
 ### 🚀 Tecnologias utilizadas
 
 - Node.js/Expres
-- Sequelize (MySql)
+- Prisma (MySql)
 - JWT (para autenticação)
 - Postman (para testes das rotas)
 
