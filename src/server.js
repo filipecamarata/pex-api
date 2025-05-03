@@ -1,4 +1,3 @@
-import "dotenv/config";
 import app from "./app.js"
 import routes from "./routes/index.js"
 import dotenv from "dotenv"

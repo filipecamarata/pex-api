@@ -16,6 +16,7 @@ datasource db {
 
 model Images {
   id        Int       @id @default(autoincrement())
+  name      String    @db.VarChar(50)
   path      String    @db.VarChar(100)
   products  Product?
   createdAt DateTime  @default(now())

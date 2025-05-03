@@ -1,7 +1,8 @@
 import jwt from "jsonwebtoken"
 import dotenv from "dotenv"
+import statusCode from "../helpers/status-code.js"
 
-const envFile = "NODE_ENV" ? "dev" : "prod"
+const envFile = process.env.NODE_ENV === 'dev' ? '.env.dev' :'.env'
 dotenv.config({path: envFile}) 
 
 const verifyToken = (req, res, next) =>{
@@ -10,7 +11,8 @@ const verifyToken = (req, res, next) =>{
             message: "Acesso negado"
         })
     }
-
+    
+   
     const tokenHeadres = req.headers.authorization  
     const token = tokenHeadres.split(" ")[1]
     
