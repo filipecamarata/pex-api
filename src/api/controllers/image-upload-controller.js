@@ -3,7 +3,7 @@ import prisma from "../../prisma/prisma-client.js";
 
 export default class ImageController{
     static async upload(req, res){
-        const name = req.body
+        const { name }= req.body
         const img = req.file
 
         if(!name){
@@ -17,7 +17,7 @@ export default class ImageController{
         }
 
         const data ={
-           name: name.name,
+           name: name,
            path: img.path 
         }
 
