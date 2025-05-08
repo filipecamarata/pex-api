@@ -19,3 +19,19 @@ export async function findCategoryById(categoryId) {
 export async function findProductByImageId(imageId) {
     return await prisma.product.findUnique({ where: { imageId } });
 }
+
+export async function getAllProducts() {
+    return await prisma.product.findMany()
+}
+
+export async function getProductsById(id) {
+    return await prisma.product.findUnique({ where: { id: id } })
+}
+
+export async function updateProduct(id, data) {
+    return await prisma.product.update({ where: { id }, data })
+}
+
+export async function deleteProduct(id) {
+    return await prisma.product.delete({ where: { id } })
+}
