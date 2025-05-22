@@ -9,7 +9,7 @@ const createToken = (user, req, res) =>{
     const token = jwt.sign({
         name: user.name,
         userId: user.id
-    }, process.env.KEY_TOKEN)
+    }, process.env.KEY_TOKEN, {expiresIn: "1h"})
 
     res.status(statusCode.HTTP_OK).json({
         message: "Login realizado com sucesso", 

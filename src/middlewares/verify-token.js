@@ -11,9 +11,8 @@ const verifyToken = (req, res, next) =>{
             message: "Acesso negado"
         })
     }
-    
-   
-    const tokenHeadres = req.headers.authorization  
+       
+    const tokenHeadres = req.headers.authorization     
     const token = tokenHeadres.split(" ")[1]
     
     if(!token){
@@ -26,8 +25,9 @@ const verifyToken = (req, res, next) =>{
         const verified = jwt.verify(token, process.env.KEY_TOKEN)
         req.user = verified
         next()
-    } catch (error) {
-        return res.status(statusCode.HTTP_BAD_REQUEST).json({message: 'Token inválido'})
+    } catch (error) {        
+        res.status(statusCode.HTTP_BAD_REQUEST).json({message: 'Token inválido'})
+        return 
     }  
 }
 
