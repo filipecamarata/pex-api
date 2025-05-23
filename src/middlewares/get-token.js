@@ -1,5 +1,4 @@
-import statusCode from "../helpers/status-code"
-
+import statusCode from "../helpers/status-code.js"
 
 const getToken = (req, res) =>{
     const auth = req.headers.authorization
@@ -9,8 +8,8 @@ const getToken = (req, res) =>{
         return
     }
 
-    const token = auth.slice(" ")[1]
-
+    const token = auth.split(" ")[1]
+  
     return token
 
 }

@@ -1,13 +1,5 @@
-import "dotenv/config";
 import app from "./app.js"
-import routes from "./routes/index.js"
-import dotenv from "dotenv"
 
-const envFile = process.env.NODE_ENV === 'dev' ? '.env.dev' :'.env'
-dotenv.config({path: envFile})
-
-const port = process.env.PORT_APP
-
-routes(app)
+const port = process.env.PORT
 
 app.listen(port, () => console.log(`app runnig on port ${port}`))
