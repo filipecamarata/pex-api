@@ -1,8 +1,5 @@
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv"
 import statusCode from "../helpers/status-code.js";
-const envFile = process.env.NODE_ENV === 'dev' ? '.env.dev' :'.env'
-dotenv.config({path: envFile})
 
 const createToken = (user, req, res) =>{
 
@@ -18,6 +15,5 @@ const createToken = (user, req, res) =>{
         userId: user.id        
     })
 }
-
 
 export default createToken

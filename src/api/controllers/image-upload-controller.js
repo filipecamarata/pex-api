@@ -1,5 +1,4 @@
 import statusCode from "../../helpers/status-code.js"
-import prisma from "../../prisma/prisma-client.js";
 
 export default class ImageController{
     static async upload(req, res){

@@ -1,9 +1,6 @@
 import jwt from "jsonwebtoken"
-import dotenv from "dotenv"
-import statusCode from "../helpers/status-code.js"
 
-const envFile = process.env.NODE_ENV === 'dev' ? '.env.dev' :'.env'
-dotenv.config({path: envFile}) 
+import statusCode from "../helpers/status-code.js"
 
 const verifyToken = (req, res, next) =>{
     if(!req.headers.authorization){
