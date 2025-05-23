@@ -11,30 +11,32 @@ export async function validationProductData(req, res) {
     price = Number(price)
 
     const token = getToken(req, res)   
-    const user = await getUserByToken(token)
-    
+    const user = await getUserByToken(token)    
     const userId = user.id
-    console.log(user.id)
+    
     if (!name) {
-        return res.status(statusCode.HTTP_NOT_FOUND).json({ message: "O nome é obrigatório" })
+      res.status(statusCode.HTTP_NOT_FOUND).json({ message: "O nome é obrigatório" })
+        return 
     }
 
     if (!description) {
-        return res.status(statusCode.HTTP_NOT_FOUND).json({ message: "O descrição para o produto é obrigatório" })
+        res.status(statusCode.HTTP_NOT_FOUND).json({ message: "O descrição para o produto é obrigatório" })
+        return 
     }
     
     if (!price) {
-        return res.status(statusCode.HTTP_NOT_FOUND).json({ message: "O preço para o produto é obrigatório" })
+        res.status(statusCode.HTTP_NOT_FOUND).json({ message: "O preço para o produto é obrigatório" })
+        return 
     }
  
     if (!categoryId) {
-        return res.status(statusCode.HTTP_NOT_FOUND).json({ message: "A categoria do produto é obrigatório" })
+        res.status(statusCode.HTTP_NOT_FOUND).json({ message: "A categoria do produto é obrigatório" })
+        return 
     }
     if (!subcategoria) {
-        return res.status(statusCode.HTTP_NOT_FOUND).json({ message: "A subcategoria do produto é obrigatório" })
-    }
-
-     
+        res.status(statusCode.HTTP_NOT_FOUND).json({ message: "A subcategoria do produto é obrigatório" })
+        return 
+    }     
 
     // if (!imageId) {
     //     return res.status(statusCode.HTTP_NOT_FOUND).json({ message: "A imagem para o produto é obrigatório" })
@@ -42,7 +44,8 @@ export async function validationProductData(req, res) {
 
 
       if (!userId) {
-        return res.status(statusCode.HTTP_NOT_FOUND).json({ message: "O id que vincula o usuario ao produto é obrigatório" })
+        res.status(statusCode.HTTP_NOT_FOUND).json({ message: "O id que vincula o usuario ao produto é obrigatório" })
+        return 
     }
 
     const data ={name, description, price, categoryId, subcategoria, userId}
