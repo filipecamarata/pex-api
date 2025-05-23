@@ -34,7 +34,7 @@ model User {
 
 model Product {
   id          Int      @id @default(autoincrement())
-  name        String
+  name        String   @unique
   description String
   user        User     @relation(fields: [userId], references: [id])
   userId      Int

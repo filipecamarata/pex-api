@@ -1,12 +1,15 @@
-import statusCode from "../../helpers/status-code.js";
 import * as productRepository from "../repositories/product-repository.js";
 
 export async function createProduct(data) {
-    const verififyImageExistis = await productRepository.findImageById(data.imageId)
-    const verififyUserExistis = await productRepository.findUserById(data.userId)
-    const verififyCategoryExistis = await productRepository.findCategoryById(data.categoryId)
-    const existingProduct = await productRepository.findProductByImageId(data.imageId);
+    const { name, description, userId, categoryId, imageId } = data
+
+    const verififyImageExistis = await productRepository.findImageById(imageId)
+    const verififyUserExistis = await productRepository.findUserById(userId)
+    const verififyCategoryExistis = await productRepository.findCategoryById(categoryId)
+    const existingProduct = await productRepository.findProductByImageId(imageId)
+    const nomeJaCadastrado = await productRepository.nomeProdutoExistente(name.trim())
     
+    if (nomeJaCadastrado) throw new Error("Já tem um Produto com esse nome.");
     
     if (!verififyUserExistis) throw new Error("Este usuário não existe!");
     
@@ -16,7 +19,15 @@ export async function createProduct(data) {
     
     if (existingProduct) throw new Error("Esta imagem já está vinculada a outro produto!");
 
-    return await productRepository.createProduct(data)
+    const product = {
+        name: name.trim(),
+        description: description.trim(),
+        userId,
+        categoryId,
+        imageId
+    }
+
+    return await productRepository.createProduct(product)
 }
 
 export async function getAllProducts() {

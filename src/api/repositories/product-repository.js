@@ -35,3 +35,14 @@ export async function updateProduct(id, data) {
 export async function deleteProduct(id) {
     return await prisma.product.delete({ where: { id } })
 }
+
+export async function nomeProdutoExistente(nome) {
+    return  await prisma.product.findFirst({
+        where: {
+            name: {
+                equals: nome,
+                mode: "insensitive" // ignora maisculas e menusculas
+            }
+        }
+    })
+}
