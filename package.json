@@ -1,0 +1,39 @@
+{
+  "name": "pex-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "types": "module",
+  "engines": {
+    "node": "22"
+  },
+  "scripts": {   
+    "start": " node ./src/server.js",
+    "dev": "NODE_ENV=dev nodemon ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/filipecamarata/pex-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/filipecamarata/pex-api/issues"
+  },
+  "homepage": "https://github.com/filipecamarata/pex-api#readme",
+  "dependencies": {
+    "@prisma/client": "^6.7.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "prisma": "^6.7.0"
+  }
+}
