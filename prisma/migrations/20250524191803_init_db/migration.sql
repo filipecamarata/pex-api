@@ -16,7 +16,7 @@ CREATE TABLE "Product" (
     "name" VARCHAR(100) NOT NULL,
     "description" VARCHAR(150) NOT NULL,
     "subcategoria" VARCHAR(150) NOT NULL,
-    "price" INTEGER NOT NULL,
+    "price" VARCHAR(10) NOT NULL,
     "userId" INTEGER NOT NULL,
     "categoryId" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -37,6 +37,9 @@ CREATE TABLE "Category" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Product_name_key" ON "Product"("name");
 
 -- AddForeignKey
 ALTER TABLE "Product" ADD CONSTRAINT "Product_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

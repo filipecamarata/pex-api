@@ -1,7 +1,4 @@
 import statusCode from "../helpers/status-code.js"
-import getUserByToken from "./get-user-by-token.js"
-import getToken from "./get-token.js"
-
 
 export async function validationProductData(req, res) {
     const { name, description, subcategoria } = req.body
@@ -33,22 +30,16 @@ export async function validationProductData(req, res) {
         res.status(statusCode.HTTP_NOT_FOUND).json({ message: "A categoria do produto é obrigatório" })
         return 
     }
+
     if (!subcategoria) {
         res.status(statusCode.HTTP_NOT_FOUND).json({ message: "A subcategoria do produto é obrigatório" })
         return 
     }     
 
-    // if (!imageId) {
-    //     return res.status(statusCode.HTTP_NOT_FOUND).json({ message: "A imagem para o produto é obrigatório" })
-    // }
-
-
-      if (!userId) {
+    if (!userId) {
         res.status(statusCode.HTTP_NOT_FOUND).json({ message: "O id que vincula o usuario ao produto é obrigatório" })
         return 
     }
 
-    const data ={name, description, price, categoryId, subcategoria, userId}
-
-    return data
+    return { name, description, subcategoria, price, userId, categoryId }
 }

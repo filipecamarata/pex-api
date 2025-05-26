@@ -3,11 +3,10 @@ import * as producsServices from "../services/product-service.js";
 import { validationProductData } from "../../middlewares/validation-data.js";
 
 export default class producsController {
-    static async products(req, res) {
+    static async products(req, res) 
+    {
         const data = await validationProductData(req, res)
         if(!data)return
-
-        console.log(data)
         
         try {
              await producsServices.createProduct(data)
