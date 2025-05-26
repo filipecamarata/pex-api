@@ -48,6 +48,7 @@ export default class producsController {
             const updatedProduct = await producsServices.updateProduct(id, data)
             res.status(statusCode.HTTP_OK).json({ message: "Produto Atualizado com secesso", updatedProduct })
         } catch (error) {
+            console.log(error)
             res.status(statusCode.HTTP_UNPROCESSABLE_ENTITY).json({
                 message: error.message
             });
