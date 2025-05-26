@@ -1,7 +1,15 @@
 import statusCode from "../helpers/status-code.js"
 
 export async function validationProductData(req, res) {
-    const { name, description, subcategoria, price, userId, categoryId } = req.body
+    const { name, description, subcategoria } = req.body
+    
+    let {price, categoryId } = req.body
+    categoryId = Number(categoryId)
+    price = Number(price)
+
+    const token = getToken(req, res)   
+    const user = await getUserByToken(token)    
+    const userId = user.id
     
     if (!name) {
       res.status(statusCode.HTTP_NOT_FOUND).json({ message: "O nome é obrigatório" })
