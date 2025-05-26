@@ -7,7 +7,7 @@ export async function validationProductData(req, res) {
     
     let {price, categoryId } = req.body
     categoryId = Number(categoryId)
-    price = Number(price)
+   
 
     const token = getToken(req, res)   
     const user = await getUserByToken(token)    
