@@ -1,4 +1,6 @@
 import statusCode from "../helpers/status-code.js"
+import getToken from "./get-token.js"
+import getUserByToken from "./get-user-by-token.js"
 
 export async function validationProductData(req, res) {
     const { name, description, subcategoria } = req.body
