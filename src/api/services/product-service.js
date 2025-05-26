@@ -16,7 +16,7 @@ export async function createProduct(data) {
         name: name.trim(),
         description: description.trim(),
         subcategoria: subcategoria.trim(),
-        price: price.trim(),
+        price: price,
         userId,
         categoryId
     }

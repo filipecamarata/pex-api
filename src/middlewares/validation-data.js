@@ -7,10 +7,12 @@ export async function validationProductData(req, res) {
     
     let {price, categoryId } = req.body
     categoryId = Number(categoryId)
-    price = Number(price)
-
-    const token = getToken(req, res)   
-    const user = await getUserByToken(token)    
+    price = parseFloat(price.replace(",", "."))
+    const token = getToken(req, res)
+     
+    const user = await getUserByToken(token)   
+   
+    
     const userId = user.id
     
     if (!name) {
