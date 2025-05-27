@@ -42,7 +42,12 @@ export default class producsController {
 
     static async updateProducts(req, res) {
         const id = parseInt(req.params.id, 10);
-        const data = req.body
+         const { name, description, subcategoria } = req.body    
+        let {price, categoryId } = req.body
+        categoryId = Number(categoryId)
+        price = parseFloat(price.replace(",", "."))
+
+        const data = { name, description, subcategoria, price, categoryId}
 
         try {
             const updatedProduct = await producsServices.updateProduct(id, data)
